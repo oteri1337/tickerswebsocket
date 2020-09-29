@@ -101,3 +101,17 @@ socket.addEventListener("message", function ({ data }) {
     }
   }
 });
+
+// disconnect
+socket.addEventListener("close", () => {
+  console.log("connection closed");
+  console.log(" ");
+  console.log(" ");
+  console.log(" ");
+  console.log(" ");
+});
+
+// error
+socket.addEventListener("error", (e) => {
+  console.log("error occured ", e);
+});
