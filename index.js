@@ -21,13 +21,13 @@ function subscribe(symbol) {
 socket.addEventListener("open", function (event) {
   // cryptos
   socket.send(subscribe("BINANCE:BTCUSDT"));
-  // socket.send(subscribe("BINANCE:ETHUSDT"));
-  // socket.send(subscribe("BINANCE:TRXUSDT"));
+  socket.send(subscribe("BINANCE:ETHUSDT"));
+  socket.send(subscribe("BINANCE:TRXUSDT"));
   // socket.send(subscribe("BINANCE:XRPUSDT"));
   // socket.send(subscribe("BINANCE:ZECUSDT"));
   // socket.send(subscribe("BINANCE:LTCUSDT"));
   // socket.send(subscribe("BINANCE:DASHUSDT"));
-  // socket.send(subscribe("BINANCE:NEOSDT"));
+  // socket.send(subscribe("BINANCE:NEOUSDT"));
   // socket.send(subscribe("BINANCE:QTUMUSDT"));
   // socket.send(subscribe("BINANCE:IOTAUSDT"));
   // socket.send(subscribe("BINANCE:ADAUSDT"));
