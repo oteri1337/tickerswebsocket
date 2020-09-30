@@ -7,7 +7,7 @@ const sServer = new WebSocketServer({ port: process.env.PORT || 1027 });
 
 sServer.on("connection", (connection) => {
   setInterval(() => {
-    connection.send(JSON.stringify(finnihubdata)), 1000;
+    connection.send(JSON.stringify(finnihubdata)), 9000;
   });
 });
 

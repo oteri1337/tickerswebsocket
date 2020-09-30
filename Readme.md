@@ -1,3 +1,3 @@
-Websocket for live crypto, stocks and forex prices
+Node JS Websocket for live crypto, stocks and forex prices
 
 endpoint ws://tickerswebsocket.herokuapp.com
