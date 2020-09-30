@@ -5,12 +5,6 @@ let finnihubdata = {};
 
 const sServer = new WebSocketServer({ port: process.env.PORT || 1027 });
 
-sServer.on("connection", (connection) => {
-  setInterval(() => {
-    connection.send(JSON.stringify(finnihubdata)), 1000 * 60 * 10;
-  });
-});
-
 const socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 
 function subscribe(symbol) {
@@ -23,61 +17,61 @@ socket.addEventListener("open", function (event) {
   socket.send(subscribe("BINANCE:BTCUSDT"));
   socket.send(subscribe("BINANCE:ETHUSDT"));
   socket.send(subscribe("BINANCE:TRXUSDT"));
-  // socket.send(subscribe("BINANCE:XRPUSDT"));
-  // socket.send(subscribe("BINANCE:ZECUSDT"));
-  // socket.send(subscribe("BINANCE:LTCUSDT"));
-  // socket.send(subscribe("BINANCE:DASHUSDT"));
-  // socket.send(subscribe("BINANCE:NEOUSDT"));
-  // socket.send(subscribe("BINANCE:QTUMUSDT"));
-  // socket.send(subscribe("BINANCE:IOTAUSDT"));
-  // socket.send(subscribe("BINANCE:ADAUSDT"));
-  // socket.send(subscribe("BINANCE:ONTUSDT"));
-  // socket.send(subscribe("BINANCE:OMGUSDT"));
-  // socket.send(subscribe("BINANCE:BNBUSDT"));
-  // socket.send(subscribe("BINANCE:XLMUSDT"));
-  // //
+  socket.send(subscribe("BINANCE:XRPUSDT"));
+  socket.send(subscribe("BINANCE:ZECUSDT"));
+  socket.send(subscribe("BINANCE:LTCUSDT"));
+  socket.send(subscribe("BINANCE:DASHUSDT"));
+  socket.send(subscribe("BINANCE:NEOUSDT"));
+  socket.send(subscribe("BINANCE:QTUMUSDT"));
+  socket.send(subscribe("BINANCE:IOTAUSDT"));
+  socket.send(subscribe("BINANCE:ADAUSDT"));
+  socket.send(subscribe("BINANCE:ONTUSDT"));
+  socket.send(subscribe("BINANCE:OMGUSDT"));
+  socket.send(subscribe("BINANCE:BNBUSDT"));
+  socket.send(subscribe("BINANCE:XLMUSDT"));
+  //
 
-  // // stocks
-  // socket.send(subscribe("V"));
-  // socket.send(subscribe("MA"));
-  // socket.send(subscribe("FB"));
-  // socket.send(subscribe("ZM"));
-  // socket.send(subscribe("NKE"));
-  // socket.send(subscribe("AMD"));
-  // socket.send(subscribe("ADBE"));
-  // socket.send(subscribe("AMZN"));
-  // socket.send(subscribe("AAPL"));
-  // socket.send(subscribe("TSLA"));
-  // socket.send(subscribe("NVDA"));
-  // socket.send(subscribe("NLFX"));
-  // socket.send(subscribe("TWTR"));
-  // socket.send(subscribe("PYPL"));
-  // socket.send(subscribe("MSFT"));
-  // socket.send(subscribe("GOOGL"));
+  // stocks
+  socket.send(subscribe("V"));
+  socket.send(subscribe("MA"));
+  socket.send(subscribe("FB"));
+  socket.send(subscribe("ZM"));
+  socket.send(subscribe("NKE"));
+  socket.send(subscribe("AMD"));
+  socket.send(subscribe("ADBE"));
+  socket.send(subscribe("AMZN"));
+  socket.send(subscribe("AAPL"));
+  socket.send(subscribe("TSLA"));
+  socket.send(subscribe("NVDA"));
+  socket.send(subscribe("NLFX"));
+  socket.send(subscribe("TWTR"));
+  socket.send(subscribe("PYPL"));
+  socket.send(subscribe("MSFT"));
+  socket.send(subscribe("GOOGL"));
 
-  // // forex - aud
-  // socket.send(subscribe("OANDA:AUD_USD"));
-  // socket.send(subscribe("OANDA:AUD_JPY"));
-  // socket.send(subscribe("OANDA:AUD_CHF"));
-  // socket.send(subscribe("OANDA:AUD_CAD"));
+  // forex - aud
+  socket.send(subscribe("OANDA:AUD_USD"));
+  socket.send(subscribe("OANDA:AUD_JPY"));
+  socket.send(subscribe("OANDA:AUD_CHF"));
+  socket.send(subscribe("OANDA:AUD_CAD"));
 
-  // // forex - eur
-  // socket.send(subscribe("OANDA:EUR_USD"));
-  // socket.send(subscribe("OANDA:EUR_JPY"));
-  // socket.send(subscribe("OANDA:EUR_CHF"));
-  // socket.send(subscribe("OANDA:EUR_CAD"));
+  // forex - eur
+  socket.send(subscribe("OANDA:EUR_USD"));
+  socket.send(subscribe("OANDA:EUR_JPY"));
+  socket.send(subscribe("OANDA:EUR_CHF"));
+  socket.send(subscribe("OANDA:EUR_CAD"));
 
-  // //   forex - gbp
-  // socket.send(subscribe("OANDA:GBP_USD"));
-  // socket.send(subscribe("OANDA:GBP_JPY"));
-  // socket.send(subscribe("OANDA:GBP_CHF"));
-  // socket.send(subscribe("OANDA:GBP_CAD"));
+  //   forex - gbp
+  socket.send(subscribe("OANDA:GBP_USD"));
+  socket.send(subscribe("OANDA:GBP_JPY"));
+  socket.send(subscribe("OANDA:GBP_CHF"));
+  socket.send(subscribe("OANDA:GBP_CAD"));
 
-  // // forex - usd
-  // socket.send(subscribe("OANDA:USD_JPY"));
-  // socket.send(subscribe("OANDA:NZD_CHF"));
-  // socket.send(subscribe("OANDA:USD_CAD"));
-  // socket.send(subscribe("OANDA:NZD_CAD"));
+  // forex - usd
+  socket.send(subscribe("OANDA:USD_JPY"));
+  socket.send(subscribe("OANDA:NZD_CHF"));
+  socket.send(subscribe("OANDA:USD_CAD"));
+  socket.send(subscribe("OANDA:NZD_CAD"));
 });
 
 // Listen for messages
@@ -99,16 +93,16 @@ socket.addEventListener("message", function ({ data }) {
       finnihubdata[s] = data.data[0].p;
       console.log(s, data.data[0].p);
     }
+
+    sServer.clients.forEach((client) => {
+      client.send(JSON.stringify(finnihubdata));
+    });
   }
 });
 
 // disconnect
 socket.addEventListener("close", () => {
-  console.log("connection closed");
-  console.log(" ");
-  console.log(" ");
-  console.log(" ");
-  console.log(" ");
+  console.log("connection to finihub closed");
 });
 
 // error
