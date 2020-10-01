@@ -5,7 +5,7 @@ let finnihubdata = {};
 
 const sServer = new WebSocketServer({ port: process.env.PORT || 1027 });
 
-const socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
+let socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 
 function subscribe(symbol) {
   return JSON.stringify({ type: "subscribe", symbol });
@@ -108,4 +108,5 @@ socket.addEventListener("close", () => {
 // error
 socket.addEventListener("error", (e) => {
   console.log("error occured ", e);
+  socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 });
