@@ -103,9 +103,9 @@ socket.addEventListener("message", function ({ data }) {
 // disconnect
 socket.addEventListener("close", () => {
   console.log("connection to finihub closed");
-  console.log(socket);
+  //console.log(socket);
   socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
-  console.log(socket);
+  // console.log(socket);
 });
 
 // error
