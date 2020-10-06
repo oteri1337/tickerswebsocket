@@ -3,9 +3,10 @@ const WebSocketServer = require("ws").Server;
 
 let finnihubdata = {};
 
+const sServer = new WebSocketServer({ port: process.env.PORT || 1027 });
+
 function runSocket() {
   console.log("running socket");
-  const sServer = new WebSocketServer({ port: process.env.PORT || 1027 });
 
   let socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 
