@@ -103,11 +103,11 @@ socket.addEventListener("message", function ({ data }) {
 // disconnect
 socket.addEventListener("close", () => {
   console.log("connection to finihub closed");
-  socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
+  // socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 });
 
 // error
 socket.addEventListener("error", (e) => {
   console.log("error occured ", e);
-  socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
+  // socket = new WebSocket("wss://ws.finnhub.io?token=btg5pp748v6r32agac1g");
 });
