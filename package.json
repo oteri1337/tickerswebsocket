@@ -1,5 +1,6 @@
 {
-  "name": "livetickers",
+  "name": "tickerswebsocket",
+  "license": "UNLICENSED",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js"

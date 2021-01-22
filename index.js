@@ -21,14 +21,17 @@ function runSocket() {
     socket.send(subscribe("HITBTC:ETHUSD"));
     socket.send(subscribe("HITBTC:TRXUSD"));
     socket.send(subscribe("HITBTC:XRPUSD"));
+
     socket.send(subscribe("HITBTC:ZECUSD"));
     socket.send(subscribe("HITBTC:LTCUSD"));
     socket.send(subscribe("HITBTC:NEOUSD"));
     socket.send(subscribe("HITBTC:ADAUSD"));
+
     socket.send(subscribe("HITBTC:ONTUSD"));
     socket.send(subscribe("HITBTC:OMGUSD"));
     socket.send(subscribe("HITBTC:BNBUSD"));
     socket.send(subscribe("HITBTC:XLMUSD"));
+
     socket.send(subscribe("HITBTC:EOSUSD"));
     socket.send(subscribe("HITBTC:DASHUSD"));
     socket.send(subscribe("HITBTC:QTUMUSD"));
@@ -56,25 +59,29 @@ function runSocket() {
     socket.send(subscribe("AAPL"));
     socket.send(subscribe("AMZN"));
     socket.send(subscribe("MSFT"));
-    socket.send(subscribe("BA"));
-    socket.send(subscribe("CEMB"));
-    socket.send(subscribe("SQ"));
-    socket.send(subscribe("BABA"));
-    socket.send(subscribe("V"));
-    socket.send(subscribe("MA"));
     socket.send(subscribe("FB"));
-    socket.send(subscribe("ZM"));
-    socket.send(subscribe("NKE"));
+
     socket.send(subscribe("AMD"));
-    socket.send(subscribe("ADBE"));
     socket.send(subscribe("TSLA"));
     socket.send(subscribe("NVDA"));
+    socket.send(subscribe("ZM"));
+
     socket.send(subscribe("NLFX"));
     socket.send(subscribe("TWTR"));
     socket.send(subscribe("PYPL"));
-    socket.send(subscribe("GOOG"));
     socket.send(subscribe("GOOGL"));
-    socket.send(subscribe("TWLO"));
+
+    socket.send(subscribe("V"));
+    socket.send(subscribe("MA"));
+    socket.send(subscribe("NKE"));
+    socket.send(subscribe("ADBE"));
+
+    // socket.send(subscribe("BA"));
+    // socket.send(subscribe("CEMB"));
+    // socket.send(subscribe("SQ"));
+    // socket.send(subscribe("BABA"));
+    // socket.send(subscribe("GOOG"));
+    // socket.send(subscribe("TWLO"));
 
     // forex - aud
     socket.send(subscribe("OANDA:AUD_USD"));
