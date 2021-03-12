@@ -59,22 +59,37 @@ function runSocket() {
     socket.send(subscribe("AAPL"));
     socket.send(subscribe("AMZN"));
     socket.send(subscribe("MSFT"));
-    socket.send(subscribe("FB"));
 
+    socket.send(subscribe("FB"));
     socket.send(subscribe("AMD"));
     socket.send(subscribe("TSLA"));
     socket.send(subscribe("NVDA"));
     socket.send(subscribe("ZM"));
-
     socket.send(subscribe("NLFX"));
     socket.send(subscribe("TWTR"));
     socket.send(subscribe("PYPL"));
     socket.send(subscribe("GOOGL"));
-
     socket.send(subscribe("V"));
     socket.send(subscribe("MA"));
     socket.send(subscribe("NKE"));
     socket.send(subscribe("ADBE"));
+
+    socket.send(subscribe("BB"));
+    socket.send(subscribe("PLTR"));
+
+    socket.send(subscribe("GME"));
+    socket.send(subscribe("AMC"));
+    socket.send(subscribe("CCIV"));
+    socket.send(subscribe("FUBO"));
+    socket.send(subscribe("AUVI"));
+    socket.send(subscribe("OLB"));
+    socket.send(subscribe("NIO"));
+    socket.send(subscribe("CLOV"));
+    socket.send(subscribe("OPGN"));
+    socket.send(subscribe("AEI"));
+    socket.send(subscribe("FUV"));
+    socket.send(subscribe("OTRK"));
+    socket.send(subscribe("JUPW"));
 
     // socket.send(subscribe("BA"));
     // socket.send(subscribe("CEMB"));
